@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу | KE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="unlock-screen" class="hero-screen">
+        <div class="hero-logo">KE</div>
+        <div class="unlock-container" id="unlock-btn">
+            <div class="lock-icon">
+                <svg width="24" height="30" viewBox="0 0 24 30" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="5" y="11" width="14" height="14" rx="2"></rect>
+                    <path d="M7 11V7a5 5 0 0110 0v4"></path>
+                    <circle cx="12" cy="18" r="1.5"></circle>
+                </svg>
+            </div>
+            <p>нажмите, чтобы<br>разблокировать приглашение</p>
+        </div>
+    </div>
+
+    <div id="main-content" class="content-hidden">
+        
+        <section class="section-greeting">
+            <p class="italic-subtitle">осталось до свадьбы:</p>
+            <div class="countdown" id="countdown">
+                <div class="time-block"><span id="days">0</span><small>дней</small></div>
+                <div class="colon">:</div>
+                <div class="time-block"><span id="hours">0</span><small>часов</small></div>
+                <div class="colon">:</div>
+                <div class="time-block"><span id="minutes">0</span><small>минут</small></div>
+                <div class="colon">:</div>
+                <div class="time-block"><span id="seconds">0</span><small>секунд</small></div>
+            </div>
+
+            <h1 class="main-title">ДОРОГИЕ ГОСТИ!</h1>
+            <p class="main-text">с большим удовольствием приглашаем<br>вас отпраздновать самое важное событие<br>в нашей жизни - свадьбу!</p>
+
+            <div class="date-display">
+                <div class="date-row">
+                    <span>МАЙ</span>
+                    <span class="day-number">25</span>
+                    <span>ВС</span>
+                </div>
+                <div class="year-row">2025</div>
+            </div>
+        </section>
+
+        <section class="section-location">
+            <h2 class="section-title">МЕСТО ТОРЖЕСТВА</h2>
+            <p class="main-text">регистрация нашего брака пройдет<br>во Дворце Бракосочетания</p>
+            <p class="main-text address">адрес: Малый Харитоньевский<br>пер., 10, стр 1.</p>
+            
+            <div class="map-container">
+                <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=600&q=80" alt="Карта проезда">
+            </div>
+
+            <p class="main-text">наша свадьба пройдет на<br>теплоходе "Императрица"</p>
+        </section>
+
+        <section class="section-program">
+            <h2 class="section-title">ПРОГРАММА ДНЯ</h2>
+            <p class="main-text date-subtitle">воскресенье, 25 мая 2025 г.</p>
+
+            <div class="program-item">
+                <div class="program-time">12:30</div>
+                <div class="program-desc">регистрация брака</div>
+                <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=600&q=80" alt="Кольца">
+            </div>
+
+            <div class="program-item">
+                <div class="program-time">15:00 - 22:00</div>
+                <div class="program-desc">праздничный вечер</div>
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=600&q=80" alt="Праздник">
+            </div>
+        </section>
+
+        <section class="section-info">
+            <h2 class="section-title">ДРЕСС-КОД</h2>
+            <p class="main-text">у нас нет строгих требований и<br>пожеланий к вашим нарядам, главное<br>для нас - ваше присутствие, приходите в<br>том, в чем будете чувствовать себя<br>самыми красивыми</p>
+
+            <h2 class="section-title">ПОЖЕЛАНИЯ</h2>
+            <p class="main-text">пожалуйста, оставьте ваших малышей в<br>надежных руках на время праздничного<br>вечера, так как на теплоходе не<br>предусмотрены детские зоны для<br>организации детского досуга</p>
+        </section>
+
+        <section class="section-rsvp">
+            <h2 class="section-title">АНКЕТА ГОСТЯ</h2>
+            <p class="main-text">Пожалуйста, подтвердите свое<br>присутствие до 10.05.2025</p>
+
+            <form id="rsvp-form" class="rsvp-form">
+                <div class="form-group">
+                    <label>Ваши имя и фамилия</label>
+                    <input type="text" name="name" required>
+                </div>
+
+                <div class="form-group radio-group">
+                    <label>Сможете ли присутствовать на<br>нашем торжестве?</label>
+                    <label class="radio-label"><input type="radio" name="attendance" value="yes" required> Да</label>
+                    <label class="radio-label"><input type="radio" name="attendance" value="no"> Нет</label>
+                    <label class="radio-label"><input type="radio" name="attendance" value="maybe"> Пока не знаю</label>
+                </div>
+
+                <div class="form-group">
+                    <label>С кем вы планируете прийти?</label>
+                    <input type="text" name="companion">
+                </div>
+
+                <button type="submit" class="submit-btn">ОТВЕТИТЬ</button>
+            </form>
+        </section>
+
+        <section class="section-contact">
+            <h2 class="section-title">СВЯЗЬ</h2>
+            <p class="main-text">если вы заблудились, готовите<br>сюрприз или у вас появились какие-<br>либо вопросы, вам с радостью<br>поможет наш ведущий</p>
+            
+            <div class="host-box">
+                <span class="host-name">Вадим</span>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

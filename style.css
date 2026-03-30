@@ -1,0 +1,317 @@
+/* Базовые настройки */
+:root {
+    --bg-color: #faf9f7;
+    --text-color: #2c2c2c;
+    --accent-color: #000000;
+    --border-color: #d1d1d1;
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'Montserrat', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрирование для десктопов */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Ограничиваем ширину для десктопов, чтобы сохранить мобильный вид */
+#main-content {
+    width: 100%;
+    max-width: 500px; /* Идеальная ширина для таких приглашений */
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: opacity 1s ease;
+}
+
+.content-hidden {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.content-visible {
+    opacity: 1;
+    height: auto;
+}
+
+/* Стартовый экран с фото */
+.hero-screen {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.hero-screen.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+}
+
+.hero-logo {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    margin-top: 40px;
+    letter-spacing: 2px;
+}
+
+.unlock-container {
+    margin-bottom: 60px;
+    text-align: center;
+    cursor: pointer;
+    animation: pulse 2s infinite;
+}
+
+.lock-icon {
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 15px auto;
+}
+
+.unlock-container p {
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+
+/* Общие стили для секций */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.section-title, .main-title {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.main-text {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Таймер */
+.italic-subtitle {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.time-block {
+    display: flex;
+    flex-direction: column;
+    min-width: 50px;
+}
+
+.time-block span {
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
+.time-block small {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #777;
+}
+
+.colon {
+    font-size: 1.5rem;
+    margin: 0 10px 15px 10px;
+}
+
+/* Дата */
+.date-display {
+    margin-top: 40px;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 0;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.date-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.day-number {
+    font-size: 2.5rem;
+    font-family: var(--font-serif);
+    margin: 0 20px;
+}
+
+.year-row {
+    font-size: 1.1rem;
+    letter-spacing: 4px;
+    margin-top: 10px;
+}
+
+/* Программа */
+.date-subtitle {
+    margin-bottom: 30px;
+}
+
+.program-item {
+    border: 1px dashed var(--accent-color);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.program-time {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.program-desc {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.program-item img, .map-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.map-container {
+    margin: 20px 0;
+}
+
+/* Анкета (Форма) */
+.rsvp-form {
+    text-align: left;
+    margin-top: 30px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    text-align: center;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 20%;
+}
+
+.radio-label {
+    display: flex !important;
+    align-items: center;
+    font-size: 0.9rem !important;
+    font-weight: 300;
+    margin-bottom: 8px !important;
+    cursor: pointer;
+}
+
+.radio-label input {
+    margin-right: 10px;
+    accent-color: var(--accent-color);
+}
+
+.submit-btn {
+    display: block;
+    width: 150px;
+    margin: 40px auto 0;
+    padding: 12px 0;
+    background: transparent;
+    border: 1px solid var(--accent-color);
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: var(--accent-color);
+    color: #fff;
+}
+
+/* Связь */
+.host-box {
+    border: 1px dashed var(--accent-color);
+    padding: 20px;
+    margin: 30px auto 0;
+    width: 80%;
+}
+
+.host-name {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-style: italic;
+}
