@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу | Крафт v2</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Montserrat:wght@400;500;600&family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="unlock-screen">
+        <div class="unlock-content">
+            <h1 class="unlock-names">Никита & Настя</h1>
+            <p class="unlock-date">15 августа 2026</p>
+            <div class="swipe-btn" id="unlock-btn">
+                <span>открыть приглашение</span>
+                <div class="arrow-up">↑</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-wrapper" class="hidden">
+        
+        <div class="blob-bg blob-bg-green blob-1"></div>
+        <div class="blob-bg blob-bg-red blob-2"></div>
+
+        <svg class="decor decor-star-1" width="40" height="40" viewBox="0 0 100 100" fill="none" stroke="var(--accent-green)" stroke-width="4" stroke-linecap="round"><path d="M50 10 Q50 50 10 50 Q50 50 50 90 Q50 50 90 50 Q50 50 50 10"/></svg>
+        <svg class="decor decor-star-2" width="30" height="30" viewBox="0 0 100 100" fill="none" stroke="var(--accent-red)" stroke-width="4" stroke-linecap="round"><path d="M50 10 Q50 50 10 50 Q50 50 50 90 Q50 50 90 50 Q50 50 50 10"/></svg>
+        <svg class="decor decor-heart-1" width="25" height="25" viewBox="0 0 100 100" fill="var(--accent-red)"><path d="M50 85 C20 60 10 40 10 25 C10 10 25 5 35 15 C45 25 50 35 50 35 C50 35 55 25 65 15 C75 5 90 10 90 25 C90 40 80 60 50 85 Z"/></svg>
+
+        <main class="container">
+            
+            <section class="section hero-section reveal">
+                <div class="hero-content text-center">
+                    <h1 class="marker-title text-dark" style="font-size: 4rem;">Никита + Настя =</h1>
+                    <div class="hero-photo-wrapper">
+                        <svg class="bg-heart" viewBox="0 0 100 100" fill="var(--accent-red)"><path d="M50 85 C20 60 10 40 10 25 C10 10 25 5 35 15 C45 25 50 35 50 35 C50 35 55 25 65 15 C75 5 90 10 90 25 C90 40 80 60 50 85 Z"/></svg>
+                            
+                        <img src="end.png" alt="Никита и Настя" class="couple-photo">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section header-section reveal">
+                <div class="polaroid rotate-right with-tape">
+                    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80" alt="Пара">
+                    <div class="polaroid-caption">Мы женимся!</div>
+                </div>
+                <div class="text-blob-wrapper text-blob-green reveal">
+                    <h2 class="marker-title text-center text-white">Дорогие близкие!</h2>
+                    <p class="text-center text-white">Один день в этом году будет для нас особенным! Мы хотим, чтобы день нашей свадьбы стал еще теплее и ярче благодаря вашему присутствию!</p>
+                </div>
+            </section>
+
+            <section class="section timer-section reveal">
+                <h2 class="handwritten">до нашей встречи осталось:</h2>
+                <div class="countdown" id="countdown">
+                    <div class="sticker"><span id="days">00</span><small>дней</small></div>
+                    <div class="sticker"><span id="hours">00</span><small>часов</small></div>
+                    <div class="sticker"><span id="minutes">00</span><small>минут</small></div>
+                    <div class="sticker"><span id="seconds">00</span><small>секунд</small></div>
+                </div>
+            </section>
+
+            <section class="section place-section reveal">
+                <div class="text-blob-wrapper text-blob-red reveal">
+                    <h2 class="marker-title text-center text-white">Место</h2>
+                    <p class="text-center text-white">Ждем вас в загородном клубе, где природа станет декорацией.</p>
+                    <p class="text-center text-white"><strong>«Forest Seasons»</strong><br>Московская обл., Лесной массив, 1</p>
+                    <a href="#" class="btn-outline">на карте</a>
+                </div>
+                <div class="polaroid rotate-left with-tape">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Ресторан">
+                </div>
+            </section>
+
+            <section class="section timeline-section reveal">
+                <h2 class="marker-title text-green">Тайминг</h2>
+                <div class="timeline-simple">
+                    
+                    <div class="time-row reveal">
+                        <div class="time-val">15:00</div>
+                        <svg class="time-heart" width="16" height="16" viewBox="0 0 100 100" fill="var(--accent-red)"><path d="M50 85 C20 60 10 40 10 25 C10 10 25 5 35 15 C45 25 50 35 50 35 C50 35 55 25 65 15 C75 5 90 10 90 25 C90 40 80 60 50 85 Z"/></svg>
+                        <div class="time-desc">сбор гостей</div>
+                    </div>
+
+                    <div class="time-row reveal">
+                        <div class="time-val">16:00</div>
+                        <svg class="time-heart" width="16" height="16" viewBox="0 0 100 100" fill="var(--accent-red)"><path d="M50 85 C20 60 10 40 10 25 C10 10 25 5 35 15 C45 25 50 35 50 35 C50 35 55 25 65 15 C75 5 90 10 90 25 C90 40 80 60 50 85 Z"/></svg>
+                        <div class="time-desc">начало церемонии</div>
+                    </div>
+
+                    <div class="time-row reveal">
+                        <div class="time-val">17:00</div>
+                        <svg class="time-heart" width="16" height="16" viewBox="0 0 100 100" fill="var(--accent-red)"><path d="M50 85 C20 60 10 40 10 25 C10 10 25 5 35 15 C45 25 50 35 50 35 C50 35 55 25 65 15 C75 5 90 10 90 25 C90 40 80 60 50 85 Z"/></svg>
+                        <div class="time-desc">ужин и танцы</div>
+                    </div>
+
+                    <div class="time-row reveal">
+                        <div class="time-val">22:00</div>
+                        <svg class="time-heart" width="16" height="16" viewBox="0 0 100 100" fill="var(--accent-red)"><path d="M50 85 C20 60 10 40 10 25 C10 10 25 5 35 15 C45 25 50 35 50 35 C50 35 55 25 65 15 C75 5 90 10 90 25 C90 40 80 60 50 85 Z"/></svg>
+                        <div class="time-desc">свадебный торт</div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="section dresscode-section reveal">
+                <div class="polaroid rotate-right with-tape">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Декор">
+                </div>
+                <div class="text-blob-wrapper text-blob-green reveal">
+                    <h2 class="marker-title text-center text-white">Дресс-код</h2>
+                    <p class="text-center text-white">Мы будем рады, если вы поддержите нашу цветовую палитру.</p>
+                    <div class="color-palette">
+                        <div class="color-circle" style="background-color: #8B9A7B;"></div>
+                        <div class="color-circle" style="background-color: #E08A82;"></div>
+                        <div class="color-circle" style="background-color: #D6CBB8;"></div>
+                        <div class="color-circle" style="background-color: #A3A3A3;"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section rsvp-section reveal">
+                <div class="rsvp-card">
+                    <h2 class="marker-title text-green text-center">Анкета</h2>
+                    <p class="handwritten text-center">Пожалуйста, подтвердите присутствие до 1 августа</p>
+                    
+                    <form id="rsvp-form">
+                        <input type="text" placeholder="Ваши имя и фамилия" required>
+                        
+                        <div class="radio-group">
+                            <p>Сможете ли присутствовать?</p>
+                            <label><input type="radio" name="attend" value="yes" required> С удовольствием приду!</label>
+                            <label><input type="radio" name="attend" value="no"> К сожалению, не смогу</label>
+                        </div>
+                        
+                        <input type="text" placeholder="С кем вы планируете прийти?">
+                        
+                        <button type="submit" class="btn-solid">отправить ответ</button>
+                    </form>
+                </div>
+            </section>
+
+            <section class="section end-section reveal">
+                <h2 class="marker-title text-dark" style="font-size: 4rem;">ЖДЕМ ВАС!</h2>
+                <p class="handwritten text-center" style="margin-top: -10px;">с любовью, Никита и Настя</p>
+                
+                <div class="hero-photo-wrapper mt-4">
+                    <svg class="decor decor-star-3" width="30" height="30" viewBox="0 0 100 100" fill="none" stroke="var(--accent-green)" stroke-width="4" stroke-linecap="round"><path d="M50 10 Q50 50 10 50 Q50 50 50 90 Q50 50 90 50 Q50 50 50 10"/></svg>
+                    
+                    <img src="end.png" alt="Никита и Настя" class="couple-photo">
+                </div>
+
+                <div class="contact-info text-center">
+                    <p>По всем вопросам, касающимся нашего торжества,<br>вы всегда можете обратиться к нашему организатору:</p>
+                    <p style="margin-top: 10px;"><strong>Анна: +7 (999) 000-00-00</strong></p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
