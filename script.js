@@ -1,80 +1,82 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // --- 1. Логика разблокировки экрана ---
+
+    // 1. Разблокировка сайта (Свайп / Клик)
     const unlockBtn = document.getElementById('unlock-btn');
-    const heroScreen = document.getElementById('unlock-screen');
-    const mainContent = document.getElementById('main-content');
+    const unlockScreen = document.getElementById('unlock-screen');
+    const mainWrapper = document.getElementById('main-wrapper');
 
     unlockBtn.addEventListener('click', () => {
-        // Скрываем начальный экран
-        heroScreen.classList.add('hidden');
+        unlockScreen.classList.add('unlocked');
+        mainWrapper.classList.remove('hidden');
+        mainWrapper.style.opacity = '1';
+        mainWrapper.style.pointerEvents = 'auto';
         
-        // Показываем основной контент
-        mainContent.classList.remove('content-hidden');
-        mainContent.classList.add('content-visible');
-        
-        // Прокручиваем в самый верх страницы плавно
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-        
-        // Если хотите, чтобы первый экран полностью удалялся из DOM после анимации:
+        // Даем время на CSS-анимацию сдвига, затем скрываем элемент
         setTimeout(() => {
-            heroScreen.style.display = 'none';
+            unlockScreen.style.display = 'none';
         }, 800);
     });
 
+    // 2. Таймер до 15 августа 2026 года
+    const targetDate = new Date(2026, 7, 15, 0, 0, 0).getTime();
 
-    // --- 2. Таймер обратного отсчета ---
-    // Устанавливаем дату: 25 мая 2025 года, 12:30
-    const countDownDate = new Date("May 25, 2025 12:30:00").getTime();
-
-    // Обновляем таймер каждую секунду
-    const timerInterval = setInterval(function() {
+    const timerInterval = setInterval(() => {
         const now = new Date().getTime();
-        const distance = countDownDate - now;
+        const distance = targetDate - now;
 
-        // Вычисления времени
+        if (distance < 0) {
+            clearInterval(timerInterval);
+            document.getElementById('countdown').innerHTML = "<h3 style='color: white;'>Ура! Этот день настал!</h3>";
+            return;
+        }
+
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Вставляем результаты в HTML
-        document.getElementById("days").innerText = days;
-        document.getElementById("hours").innerText = hours;
-        document.getElementById("minutes").innerText = minutes;
-        document.getElementById("seconds").innerText = seconds;
-
-        // Если дата прошла
-        if (distance < 0) {
-            clearInterval(timerInterval);
-            document.getElementById("countdown").innerHTML = "<p class='main-text'>Этот день настал!</p>";
-        }
+        // Добавляем ведущий ноль
+        document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+        document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+        document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+        document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
     }, 1000);
 
+    // 3. Анимация появления элементов при скролле (Intersection Observer)
+    const revealElements = document.querySelectorAll('.reveal');
 
-    // --- 3. Обработка отправки формы ---
+    const revealCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    };
+
+    const revealOptions = {
+        threshold: 0.1, // Элемент появляется, когда 10% видно
+        rootMargin: "0px 0px -20px 0px"
+    };
+
+    const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
+
+    revealElements.forEach(el => {
+        revealObserver.observe(el);
+    });
+
+    // 4. Обработка формы
     const rsvpForm = document.getElementById('rsvp-form');
-    
-    rsvpForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // Предотвращаем перезагрузку страницы
-        
-        // Здесь можно добавить логику отправки данных (Fetch API для Telegram бота или Google Таблиц)
-        // Для примера просто показываем уведомление:
-        
-        const btn = this.querySelector('.submit-btn');
+    rsvpForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = rsvpForm.querySelector('.btn-solid');
         const originalText = btn.innerText;
         
-        btn.innerText = "ОТПРАВЛЕНО!";
-        btn.style.backgroundColor = "#000";
-        btn.style.color = "#fff";
+        btn.innerText = 'Отправлено! ♥';
+        btn.style.backgroundColor = 'var(--accent-green)';
         
         setTimeout(() => {
             btn.innerText = originalText;
-            btn.style.backgroundColor = "transparent";
-            btn.style.color = "#000";
+            btn.style.backgroundColor = 'var(--accent-red)';
             rsvpForm.reset();
         }, 3000);
     });
